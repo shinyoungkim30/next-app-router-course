@@ -1,13 +1,12 @@
 'use client';
 
+import style from './NavMenu.module.css';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import Link from 'next/link';
 
-import styles from './navMenu.module.css';
-
 export default function NavMenu() {
   const segment = useSelectedLayoutSegment();
-
+  console.log(segment);
   const me = {
     // 임시로 내 정보 있는것처럼
     id: 'zerohch0',
@@ -17,7 +16,7 @@ export default function NavMenu() {
     <>
       <li>
         <Link href="/home">
-          <div className={styles.navPill}>
+          <div className={style.navPill}>
             {segment === 'home' ? (
               <>
                 <svg
@@ -52,7 +51,7 @@ export default function NavMenu() {
       </li>
       <li>
         <Link href="/explore">
-          <div className={styles.navPill}>
+          <div className={style.navPill}>
             {segment && ['search', 'explore'].includes(segment) ? (
               <>
                 <svg
@@ -87,7 +86,7 @@ export default function NavMenu() {
       </li>
       <li>
         <Link href="/messages">
-          <div className={styles.navPill}>
+          <div className={style.navPill}>
             {segment === 'messages' ? (
               <>
                 <svg
@@ -123,7 +122,7 @@ export default function NavMenu() {
       {me?.id && (
         <li>
           <Link href={`/${me?.id}`}>
-            <div className={styles.navPill}>
+            <div className={style.navPill}>
               {segment === me.id ? (
                 <>
                   <svg
